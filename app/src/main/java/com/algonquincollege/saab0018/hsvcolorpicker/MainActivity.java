@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
         mHueSB = (SeekBar) findViewById(R.id.hueSB);
         mSaturationSB = (SeekBar) findViewById(R.id.saturationSB);
         mValueSB = (SeekBar) findViewById(R.id.lightnessSB);
-        mHuePrompt = (TextView) findViewById(R.id.hueValue);
-        mSaturationPrompt = (TextView) findViewById(R.id.saturationValue);
-        mValuePrompt = (TextView) findViewById(R.id.valueValue);
+        mHuePrompt = (TextView) findViewById(R.id.hue);
+        mSaturationPrompt = (TextView) findViewById(R.id.saturation);
+        mValuePrompt = (TextView) findViewById(R.id.lightness);
 
         mHueSB.setMax((int) HSVModel.MAX_H);
         mSaturationSB.setMax((int) HSVModel.MAX_S);
@@ -129,20 +129,20 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
             case R.id.hueSB:
                 mHSV[HUE] = (float) progress;
                 mModel.setHue(mHSV[HUE]);
-                mHuePrompt.setText(mModel.hueToString());
+                mHuePrompt.setText("Hue: " + mModel.hueToString());
 
                 break;
 
             case R.id.saturationSB:
                 mHSV[SATURATION] = (float) progress;
                 mModel.setSaturation(mHSV[SATURATION]);
-                mSaturationPrompt.setText(mModel.saturationToString());
+                mSaturationPrompt.setText("Saturation: " + mModel.saturationToString());
                 break;
 
             case R.id.lightnessSB:
                 mHSV[VALUE] = (float) progress;
                 mModel.setValue(mHSV[VALUE]);
-                mValuePrompt.setText(mModel.valueToString());
+                mValuePrompt.setText("Value / Ligntness: " + mModel.valueToString());
                 break;
         }
 
@@ -198,9 +198,9 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
 
     public void clearTextViews() {
 
-        mValuePrompt.setText("");
-        mSaturationPrompt.setText("");
-        mHuePrompt.setText("");
+        mHuePrompt.setText("Hue ");
+        mSaturationPrompt.setText("Saturation ");
+        mValuePrompt.setText("Value / Lightness ");
     }
 
     public boolean colorButtonClick(View button) {
