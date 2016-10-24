@@ -6,7 +6,7 @@ import android.graphics.Color;
 import java.util.Observable;
 
 /**
- * Created by mattsaab on 2016-10-18.
+ * Created by mattsaab on 2016-10-23.
  */
 
 public class HSVModel extends Observable {

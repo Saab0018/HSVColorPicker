@@ -124,7 +124,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#000"/>
+                android:background="@color/black"/>
 
             <Button
 
@@ -134,7 +134,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#FF0000"
+                android:background="@color/red"
                 />
 
             <Button
@@ -145,7 +145,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#00FF00"/>
+                android:background="@color/lime"/>
 
             <Button
 
@@ -155,7 +155,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#0000FF"/>
+                android:background="@color/blue"/>
 
             <Button
 
@@ -165,7 +165,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#FFFF00"/>
+                android:background="@color/yellow"/>
 
             <Button
 
@@ -175,7 +175,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#00FFFF"/>
+                android:background="@color/cyan"/>
             <Button
 
                 android:layout_width="wrap_content"
@@ -184,7 +184,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#FF00FF"/>
+                android:background="@color/magenta"/>
             <Button
 
                 android:layout_width="wrap_content"
@@ -193,7 +193,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#C0C0C0"/>
+                android:background="@color/silver"/>
             <Button
 
                 android:layout_width="wrap_content"
@@ -202,7 +202,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#808080"/>
+                android:background="@color/gray"/>
             <Button
 
                 android:layout_width="wrap_content"
@@ -211,7 +211,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#800000"/>
+                android:background="@color/maroon"/>
             <Button
 
                 android:layout_width="wrap_content"
@@ -220,7 +220,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#808000"/>
+                android:background="@color/olive"/>
             <Button
 
                 android:layout_width="wrap_content"
@@ -229,7 +229,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#008000"
+                android:background="@color/green"
                 />
             <Button
 
@@ -239,7 +239,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#800080"/>
+                android:background="@color/purple"/>
             <Button
 
                 android:layout_width="wrap_content"
@@ -248,7 +248,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#008080"/>
+                android:background="@color/teal"/>
             <Button
 
                 android:layout_width="wrap_content"
@@ -257,7 +257,7 @@
                 android:layout_weight="1"
                 android:height="200dp"
                 android:onClick="colorButtonClick"
-                android:background="#000080"/>
+                android:background="@color/navy"/>
 
         </LinearLayout>
     </HorizontalScrollView>

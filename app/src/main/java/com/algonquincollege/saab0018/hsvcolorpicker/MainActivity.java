@@ -25,9 +25,16 @@ import HSVModel.HSVModel;
 
 
 /**
- * Purpose/Description of your app
+ * The Controller for HSVModel.
+ * <p>
+ * As the Controller:
+ * a) event handler for the View
+ * b) observer of the Model (HSVModel)
+ * <p>
+ * Features the Update / React Strategy.
  *
- * @author Matt Saab (saab0018@algonquinlive.com)
+ * @author Matt Saab (saab0018)
+ * @version 1.0
  */
 
 public class MainActivity extends AppCompatActivity implements Observer, SeekBar.OnSeekBarChangeListener {
