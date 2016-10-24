@@ -12,28 +12,28 @@ import java.util.Observable;
 public class HSVModel extends Observable {
 
     //CLASS VARIABLES
-    public static final Float MAX_H = 359.0f;
-    public static final Float MAX_S = 100.0f;
-    public static final Float MAX_V = 100.0f;
-    public static final Float MIN_H = 0.0f;
-    public static final Float MIN_S = 0.0f;
-    public static final Float MIN_V = 0.0f;
+    public static final float MAX_H = 359.0f;
+    public static final float MAX_S = 100.0f;
+    public static final float MAX_V = 100.0f;
+    public static final float MIN_H = 0.0f;
+    public static final float MIN_S = 0.0f;
+    public static final float MIN_V = 0.0f;
 
     // CLASS VARIABLES
 
 
 
       //INSTANCE VARIABLES
-    private Float hue;
-    private Float saturation;
-    private Float value;
+    private float hue;
+    private float saturation;
+    private float value;
 
 
     public HSVModel() {
         this(MAX_H, MAX_S, MAX_V);
     }
 
-    public HSVModel(Float hue, Float saturation, Float value){
+    public HSVModel(float hue, float saturation, float value){
         super();
 
         this.hue = hue;
@@ -48,27 +48,27 @@ public class HSVModel extends Observable {
 
 
     public void asRed() {
-        this.setHSV(0f,100.0f,100.0f);
+        this.setHSV(0f,1.0f,1.0f);
     }
 
     public void asLime() {
-        this.setHSV(120f,100.0f,100.0f);
+        this.setHSV(120f,1.0f,1.0f);
     }
 
     public void asBlue() {
-        this.setHSV(240f,100.0f,100.0f);
+        this.setHSV(240f,1.0f,1.0f);
     }
 
     public void asYellow() {
-        this.setHSV(60f,100.0f,100.0f);
+        this.setHSV(60f,1.0f,1.0f);
     }
 
     public void asCyan() {
-        this.setHSV(180f,100.0f,100.0f);
+        this.setHSV(180f,1.0f,100.0f);
     }
 
     public void asMagenta() {
-        this.setHSV(300f,100.0f,100.0f);
+        this.setHSV(300f,1.0f,1.0f);
     }
 
     public void asSilver() {
@@ -108,38 +108,39 @@ public class HSVModel extends Observable {
     // GETTERS
 
 
-    public Float getHue() {return hue;}
-    public Float getSaturation() {
+    public float getHue() {return hue;}
+    public float getSaturation() {
         return saturation;
     }
-    public Float getValue() {return value;}
+    public float getValue() {return value;}
+    public float getColor() {return Color.HSVToColor((new float[]{getHue(), getSaturation()/ 100, getValue()/100}));}
 
     // SETTERS
 
 
-    public void setHue(Float hue) {
+    public void setHue(float hue) {
         this.hue = hue;
 
         this.updateObservers();
     }
 
-    public void setSaturation(Float saturation) {
+    public void setSaturation(float saturation) {
         this.saturation = saturation;
 
         this.updateObservers();
     }
 
-    public void setValue(Float value) {
+    public void setValue(float value) {
         this.value = value;
 
         this.updateObservers();
     }
 
     // Convenient setter: set H, S, V
-    public void setHSV(Float hue, Float saturation, Float value) {
+    public void setHSV(float hue, float saturation, float value) {
         this.hue = hue;
-        this.saturation = saturation;
-        this.value = value;
+        this.saturation = saturation * 100;
+        this.value = value * 100;
 
 
         this.updateObservers();
@@ -155,18 +156,18 @@ public class HSVModel extends Observable {
 
 
     public String hueToString(){
-        return "" + hue.intValue() + "\u00B0";
+        return "" + (int)hue + "\u00B0";
     }
     public String saturationToString(){
-        return "" + saturation ;
+        return "" + saturation + "\u0025" ;
     }
     public String valueToString(){
-        return "" + value ;
+        return "" + value + "\u0025";
     }
 
     @Override
     public String toString() {
-        return "HSV [h=" + hue + "\u00B0" + " s=" + saturation + "\u0025" + " v=" + value + "\u0025"+  "]";
+        return "H:" + hue + "\u00B0" + "S: " + saturation + "\u0025" + "V: "+ value + "\u0025";
     }
 
     // Proof that my model is independent of any view.

@@ -37,7 +37,13 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
     private static final int SATURATION;
     private static final int VALUE;
 
+    static {
+        ABOUT_DIALOG_TAG = "About Dialog";
+        HUE = 0;
+        SATURATION = 1;
+        VALUE = 2;
 
+    }
     private static final String LOG_TAG = "HSV";
 
     //private AboutDialogFragment mAboutDialog;
@@ -46,18 +52,12 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
     private SeekBar mHueSB;
     private SeekBar mSaturationSB;
     private SeekBar mValueSB;
-    private float[] mHSV = new float[]{0.f, 0.f, 0.f};
+    private float[] mHSV = new float[]{0.f,0.f,0.f};
     private TextView mHuePrompt;
     private TextView mSaturationPrompt;
     private TextView mValuePrompt;
 
-    static {
-        ABOUT_DIALOG_TAG = "About Dialog";
-        HUE = 0;
-        SATURATION = 1;
-        VALUE = 2;
 
-    }
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -86,9 +86,9 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
         mSaturationPrompt = (TextView) findViewById(R.id.saturationValue);
         mValuePrompt = (TextView) findViewById(R.id.valueValue);
 
-        mHueSB.setMax(HSVModel.MAX_H.intValue());
-        mSaturationSB.setMax(HSVModel.MAX_S.intValue());
-        mValueSB.setMax(HSVModel.MAX_V.intValue());
+        mHueSB.setMax((int) HSVModel.MAX_H);
+        mSaturationSB.setMax((int) HSVModel.MAX_S);
+        mValueSB.setMax((int) HSVModel.MAX_V);
 
 
         // set the domain (i.e. max) for each component
@@ -120,25 +120,25 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
         // GET the SeekBar's progress, and SET the model to it's new value
         switch (seekBar.getId()) {
             case R.id.hueSB:
-                //mHSV[HUE] = (float) progress;
-                // mHuePrompt.setText("{progress}*");
-                mModel.setHue((float) mHueSB.getProgress());
+                mHSV[HUE] = (float) progress;
+                mModel.setHue(mHSV[HUE]);
                 mHuePrompt.setText(mModel.hueToString());
-                //Log.d((float) progress);
+
                 break;
 
             case R.id.saturationSB:
-                //mHSV[SATURATION] = (float) progress;
-                mModel.setSaturation( (((float)mSaturationSB.getProgress()) / 100));
+                mHSV[SATURATION] = (float) progress;
+                mModel.setSaturation(mHSV[SATURATION]);
                 mSaturationPrompt.setText(mModel.saturationToString());
                 break;
 
             case R.id.lightnessSB:
-                //mHSV[VALUE] = (float) progress;
-                mModel.setValue( (((float)mValueSB.getProgress()) / 100));
+                mHSV[VALUE] = (float) progress;
+                mModel.setValue(mHSV[VALUE]);
                 mValuePrompt.setText(mModel.valueToString());
                 break;
         }
+
     }
 
 
@@ -160,25 +160,25 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
 
 
     private void updateColorSwatch() {
-        mColorSwatch.setBackgroundColor(Color.HSVToColor(new float[]{mModel.getHue(), mModel.getSaturation(), mModel.getValue()}));
+        mColorSwatch.setBackgroundColor((int)mModel.getColor());
     }
 
     private void updateHueSB() {
 
-        mHueSB.setProgress(mModel.getHue().intValue());
-        Log.d("Hue", "" + mModel.getHue().intValue());
+        mHueSB.setProgress((int) mModel.getHue());
+        Log.d("Hue", "" + mModel.getHue());
     }
 
     private void updateSaturationSB() {
 
-        mSaturationSB.setProgress(mModel.getSaturation().intValue() / 100);
-        Log.d("Saturation", "" + mModel.getSaturation().intValue());
+        mSaturationSB.setProgress((int) mModel.getSaturation());
+        Log.d("Saturation", "" + mModel.getSaturation());
     }
 
     private void updateValueSB() {
 
-        mValueSB.setProgress(mModel.getValue().intValue() / 100);
-        Log.d("Value", "" + mModel.getValue().intValue());
+        mValueSB.setProgress((int) mModel.getValue());
+        Log.d("Value", "" + mModel.getValue());
     }
 
     public void updateView() {
@@ -186,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
         this.updateHueSB();
         this.updateSaturationSB();
         this.updateValueSB();
+
     }
 
     public void clearTextViews() {
@@ -196,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
     }
 
     public boolean colorButtonClick(View button) {
-        // Handle presses on the action bar items
+
         switch (button.getId()) {
 
 
@@ -292,7 +293,7 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
 
 
             default:
-                //Toast.makeText(this, "MenuItem: " , Toast.LENGTH_LONG).show();
+
                 return true;
         }
         return false;
