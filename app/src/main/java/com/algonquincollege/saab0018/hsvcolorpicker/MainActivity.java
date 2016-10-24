@@ -166,19 +166,19 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
     private void updateHueSB() {
 
         mHueSB.setProgress((int) mModel.getHue());
-        Log.d("Hue", "" + mModel.getHue());
+        //Log.d("Hue", "" + mModel.getHue());
     }
 
     private void updateSaturationSB() {
 
         mSaturationSB.setProgress((int) mModel.getSaturation());
-        Log.d("Saturation", "" + mModel.getSaturation());
+        //Log.d("Saturation", "" + mModel.getSaturation());
     }
 
     private void updateValueSB() {
 
         mValueSB.setProgress((int) mModel.getValue());
-        Log.d("Value", "" + mModel.getValue());
+        //Log.d("Value", "" + mModel.getValue());
     }
 
     public void updateView() {

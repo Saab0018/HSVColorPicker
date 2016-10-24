@@ -64,7 +64,7 @@ public class HSVModel extends Observable {
     }
 
     public void asCyan() {
-        this.setHSV(180f,1.0f,100.0f);
+        this.setHSV(180f,1.0f,1.0f);
     }
 
     public void asMagenta() {
@@ -159,15 +159,15 @@ public class HSVModel extends Observable {
         return "" + (int)hue + "\u00B0";
     }
     public String saturationToString(){
-        return "" + saturation + "\u0025" ;
+        return "" + (int)saturation + "\u0025" ;
     }
     public String valueToString(){
-        return "" + value + "\u0025";
+        return "" + (int)value + "\u0025";
     }
 
     @Override
     public String toString() {
-        return "H:" + hue + "\u00B0" + "S: " + saturation + "\u0025" + "V: "+ value + "\u0025";
+        return "H:" + (int)hue + "\u00B0" + "S: " + (int)saturation + "\u0025" + "V: "+ (int)value + "\u0025";
     }
 
     // Proof that my model is independent of any view.
