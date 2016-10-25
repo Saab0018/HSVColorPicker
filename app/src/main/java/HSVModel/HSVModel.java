@@ -137,7 +137,7 @@ public class HSVModel extends Observable {
     }
 
     // Convenient setter: set H, S, V
-    public void setHSV(float hue, float saturation, float value) {
+    private void setHSV(float hue, float saturation, float value) {
         this.hue = hue;
         this.saturation = saturation * 100;
         this.value = value * 100;

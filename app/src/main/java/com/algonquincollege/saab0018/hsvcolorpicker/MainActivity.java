@@ -110,6 +110,16 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        
+        mColorSwatch.setOnLongClickListener( new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v ) {
+
+                toastMessage();
+                return true;
+            }
+        });
     }
 
 
@@ -147,6 +157,7 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
         }
 
     }
+
 
 
     public void onStartTrackingTouch(SeekBar seekBar) {
@@ -203,6 +214,13 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
         mValuePrompt.setText("Value / Lightness ");
     }
 
+
+
+    public void toastMessage(){
+        Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+
+    }
+
     public boolean colorButtonClick(View button) {
 
         switch (button.getId()) {
@@ -211,91 +229,91 @@ public class MainActivity extends AppCompatActivity implements Observer, SeekBar
             case R.id.blackButton:
                 mModel.asBlack();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.redButton:
                 mModel.asRed();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.limeButton:
                 mModel.asLime();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.blueButton:
                 mModel.asBlue();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.yellowButton:
                 mModel.asYellow();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_LONG).show();
+                toastMessage();
                 break;
 
             case R.id.cyanButton:
                 mModel.asCyan();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.magentaButton:
                 mModel.asMagenta();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.silverButton:
                 mModel.asSilver();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.grayButton:
                 mModel.asGray();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.maroonButton:
                 mModel.asMaroon();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.oliveButton:
                 mModel.asOlive();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.greenButton:
                 mModel.asGreen();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.purpleButton:
                 mModel.asPurple();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.tealButton:
                 mModel.asTeal();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
             case R.id.navyButton:
                 mModel.asNavy();
                 clearTextViews();
-                Toast.makeText(this, mModel.toString(), Toast.LENGTH_SHORT).show();
+                toastMessage();
                 break;
 
 
